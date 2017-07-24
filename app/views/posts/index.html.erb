@@ -1,0 +1,9 @@
+<% if flash.now[:info] %>
+  <p><%= flash.now[:info] %></p>
+<% end %>
+
+<% @posts.each do |post|%>
+  <h2><%= post.name %></h2>
+  <p><%= post.description %></p>
+  <p><%= post.created_at %></p>
+<% end %>
