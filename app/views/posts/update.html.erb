@@ -1,0 +1,9 @@
+<% if flash.now[:warning] %>
+  <p><%= flash.now[:warning] %></p>
+<% end %>
+
+<%= form_for @post do |f|%>
+  Name: <%= f.text_field :name %>
+  Description: <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>

@@ -2,8 +2,13 @@
   <p><%= flash.now[:info] %></p>
 <% end %>
 
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
 <% @posts.each do |post|%>
   <h2><%= post.name %></h2>
-  <p><%= post.description %></p>
+  <p><%= limit_post_description(post.description) %></p>
   <p><%= post.created_at %></p>
+  <%= link_to "Read more", post_path(post) %>
 <% end %>
