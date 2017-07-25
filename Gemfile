@@ -33,6 +33,8 @@ gem 'commands'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether'
 gem 'jquery-rails'
+gem "actionpack-page_caching"
+gem 'rack-mini-profiler'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

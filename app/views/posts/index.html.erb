@@ -9,6 +9,12 @@
 <% @posts.each do |post|%>
   <h2><%= post.name %></h2>
   <p><%= limit_post_description(post.description) %></p>
-  <p><%= time_ago_in_words(post.created_at) %></p>
+  <p><%= time_ago_in_words(post.created_at) + " ago" %></p>
   <%= link_to "Read more", post_path(post) %>
+  <br/>
+  Tags:
+  <% post.tags.each do |tag|%>
+    <%= link_to tag.name, tag_path(tag) %>
+    &nbsp;
+  <% end %>
 <% end %>

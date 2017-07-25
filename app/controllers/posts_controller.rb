@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  caches_page :index, :show, :new
+
   def index
-    @posts = Post.order(updated_at: :asc)
+    @posts = Post.order(name: :asc).includes(:tags)
     respond_to do |format|
       format.json{
         render json: { posts: @posts, info: "Welcome to my blog" }
@@ -25,9 +27,10 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tags = Tag.order(name: :asc)
     respond_to do |format|
       format.json{
-        render json: { post: @post }
+        render json: { post: @post, tags: @tags }
       }
       format.html{
 
@@ -119,6 +122,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:name, :description)
+      params.require(:post).permit(:name, :description, tag_ids: [])
     end
 end

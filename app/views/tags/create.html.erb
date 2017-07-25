@@ -1,0 +1,13 @@
+<% if flash.now[:warning] %>
+  <p><%= flash[:warning] %></p>
+<% end %>
+
+<% if flash.now[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
+<%= form_for @tag do |f|%>
+  Name: <%= f.text_field :name %>
+  Description: <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>

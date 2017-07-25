@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725061019) do
+ActiveRecord::Schema.define(version: 20170725072412) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170725061019) do
   create_table "tag_pools", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_id"
+    t.integer "tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

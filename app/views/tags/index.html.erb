@@ -1,0 +1,13 @@
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
+<% if flash[:warning] %>
+  <p><%= flash[:warning] %></p>
+<% end %>
+
+<% @tags.each do |tag|%>
+  <h3><%= tag.name %></h3>
+  <p><%= tag.description %></p>
+  <%= link_to "Show", tag_path(tag) %>
+<% end %>
