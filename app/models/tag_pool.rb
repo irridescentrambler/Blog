@@ -1,0 +1,2 @@
+class TagPool < ApplicationRecord
+end
